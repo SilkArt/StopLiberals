@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 600px; /* Increased width to accommodate graph */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.result {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    color: #333;
+    font-size: 18px;
+    text-align: left;
+}
+
+.result strong {
+    color: #007bff;
+}
+
+/* Bar graph styles */
+.bar-graph {
+    margin-top: 20px;
+}
+
+.bar-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.party-name {
+    width: 150px; /* Fixed width for party names */
+    font-size: 14px;
+    color: #333;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.bar {
+    height: 20px;
+    min-width: 2px; /* Ensures visibility for very small percentages */
+    transition: width 0.5s ease; /* Smooth animation for bar width */
+}
+
+.vote-share {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #666;
+    min-width: 50px; /* Ensures consistent spacing */
+}
+
+/* Vote split warning styles */
+.vote-split-warning {
+    color: #d71920; /* Red, matching Liberal party color */
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Close race warning styles */
+.close-race-warning {
+    color: #d71920; /* Red, matching Liberal party color */
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
