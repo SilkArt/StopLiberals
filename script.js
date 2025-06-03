@@ -382,29 +382,6 @@ function getStrategicVoteAndGraph(district) {
     // Sort parties by vote share (descending)
     parties.sort((a, b) => b.votes - a.votes);
 
-    // Find the strongest non-Liberal party
-    const nonLiberalParties = parties.filter(party => party.name !== "Liberals (LPC)");
-    const strongestOpponent = nonLiberalParties.reduce((prev, curr) => 
-        prev.votes > curr.votes ? prev : curr
-    );
-
-    // Generate recommendation text
-    const recommendation = `To defeat the Liberals (LPC) in ${district}, vote for the <strong>${strongestOpponent.name}</strong>.`;
-
-    // Check if Liberals are leading (highest vote share) and have less than 50%
-    let voteSplitWarning = '';
-    const leadingParty = parties[0]; // Top party after sorting
-    if (leadingParty.name === "Liberals (LPC)" && data.lpc < 50) {
-        voteSplitWarning = `<p class="vote-split-warning">Warning: The Liberal vote share is ${data.lpc.toFixed(2)}%, below 50%. An anti-Liberal vote split could allow the Liberals to win.</p>`;
-    }
-
-    // Check for close race (difference between LPC and strongest opponent < 10%)
-    let closeRaceWarning = '';
-    const voteDifference = Math.abs(data.lpc - strongestOpponent.votes);
-    if (voteDifference < 10) {
-        closeRaceWarning = `<p class="close-race-warning">Close Race: The difference between the Liberals (${data.lpc.toFixed(2)}%) and ${strongestOpponent.name} (${strongestOpponent.votes.toFixed(2)}%) is only ${voteDifference.toFixed(2)}%.</p>`;
-    }
-
     // Generate bar graph HTML
     let graphHtml = '<div class="bar-graph">';
     parties.forEach(party => {
@@ -420,7 +397,7 @@ function getStrategicVoteAndGraph(district) {
     graphHtml += '</div>';
 
     // Combine recommendation, warnings (if applicable), and graph
-    return `${recommendation}${voteSplitWarning}${closeRaceWarning}${graphHtml}`;
+    return `${graphHtml}`;
 }
 
 // Event listener for dropdown change
@@ -470,8 +447,8 @@ function displaySeatCountGraph() {
     seatData.sort((a, b) => b.count - a.count);
 
     // Calculate max seats for scaling (total seats = 338)
-    const maxSeats = 338;
-    const totalSeats = seatData.reduce((sum, party) => sum + party.count, 0); // Should be 338
+    const maxSeats = 343;
+    const totalSeats = seatData.reduce((sum, party) => sum + party.count, 0); // Should be 343
 
     // Generate seat count graph HTML
     let seatGraphHtml = '<div class="seat-bar-graph">';
