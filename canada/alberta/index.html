@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MattOnCdnPoli Projections</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MattOnCdnPoli Projections</h1>
+	      <p>Find your electoral district <a href="https://map.elections.ab.ca/" target="_blank">here</a>.</p>
+	      <p>Based on Abacus Data Poll June 5, 2025</p>
+        <div style="min-height:813px" id="datawrapper-vis-9DEHt"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/9DEHt/embed.js" charset="utf-8" data-target="#datawrapper-vis-9DEHt"></script><noscript><img src="https://datawrapper.dwcdn.net/9DEHt/full.png" alt="" /></noscript></div>	<div id="seat-count-graph" class="seat-count-graph">
+            <h2>Current Seat Count by Party</h2>
+            <!-- Seat count bar graph will appear here -->
+        </div>
+        <p>Select your electoral district:</p>
+        
+        <select id="districtDropdown">
+            <option value="">-- Select District --</option>
+            <!-- Options will be dynamically populated by JavaScript -->
+        </select>
+
+        <div id="result" class="result">
+            <!-- Voting suggestion will appear here -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
